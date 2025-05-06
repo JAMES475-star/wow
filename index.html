@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>班級戀愛股市</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>班級戀愛股市</h1>
+    <nav>
+      <button onclick="showSection('market')">📈 股市</button>
+      <button onclick="showSection('profile')">👤 個人檔案</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="market-section">
+      <div id="pair-list"></div>
+      <div class="event-form">
+        <h2>📣 匿名投稿事件</h2>
+        <label>選擇配對：<select id="pairSelect"></select></label>
+        <label>投稿類型：
+          <select id="eventType">
+            <option value="positive">正面</option>
+            <option value="negative">負面</option>
+            <option value="together">在一起</option>
+            <option value="breakup">分手</option>
+          </select>
+        </label>
+        <textarea id="eventText" placeholder="今天看到他們一起走路..."></textarea>
+        <button onclick="submitEvent()">送出投稿</button>
+      </div>
+
+      <div class="new-pair-form">
+        <h3>➕ 新增配對</h3>
+        <input id="newPairInput" placeholder="例如：小美 × 小剛" />
+        <button onclick="addNewPair()">新增</button>
+      </div>
+    </section>
+
+    <section id="profile-section" style="display:none;">
+      <h2>👤 我的個人檔案</h2>
+      <label>暱稱：<input id="nicknameInput" placeholder="輸入暱稱"></label>
+      <label>頭像網址：<input id="avatarInput" placeholder="輸入圖片網址"></label>
+      <button onclick="saveProfile()">儲存</button>
+      <div id="profileDisplay"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
